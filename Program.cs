@@ -13,8 +13,10 @@ namespace OOPTask13B
                 try
                 {
                     sqlConnection.Open();
-                    
-                    string queryString = "SELECT * FROM Dentist WHERE Name LIKE 'g%'";
+                    string sql = "UPDATE Dentist SET Telnum = '050 987654321' WHERE Name = Gyro";
+                    SqlCommand sqlCommand1 = new SqlCommand(sql);
+
+                    string queryString = "SELECT * FROM Dentist";
                     SqlCommand sqlCommand2 = new SqlCommand(queryString, sqlConnection);
                     using(SqlDataReader sqlDataReader=sqlCommand2.ExecuteReader())
                     {
