@@ -17,11 +17,16 @@ namespace OOPTask13B
                     SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
                     using(SqlDataReader sqlDataReader=sqlCommand.ExecuteReader())
                     {
-                        while (sqlDataReader.Read())
+                        if (sqlDataReader.HasRows)
                         {
-                            Console.WriteLine(String.Format("{0}, {1}, {2}", 
-                                sqlDataReader[0], sqlDataReader[1], sqlDataReader[2]));
+                            while (sqlDataReader.Read())
+                            {
+                                Console.WriteLine(String.Format("{0}, {1}, {2}",
+                                    sqlDataReader[0], sqlDataReader[1], sqlDataReader[2]));
+                            }
                         }
+                        else
+                            Console.WriteLine("Sorry, empty table.");
                     }
                 }
                 catch(Exception ex)
