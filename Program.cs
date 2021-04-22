@@ -17,11 +17,12 @@ namespace OOPTask13B
                     SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
                     using(SqlDataReader sqlDataReader=sqlCommand.ExecuteReader())
                     {
-                        if (sqlDataReader.HasRows)
+                        if(sqlDataReader.HasRows)
                         {
                             while (sqlDataReader.Read())
                             {
-                                Console.WriteLine(String.Format("{0}, {1}, {2}",
+                                //Save it to a generic collection??
+                                Console.WriteLine(String.Format("{0}, {1}, {2}", 
                                     sqlDataReader[0], sqlDataReader[1], sqlDataReader[2]));
                             }
                         }
