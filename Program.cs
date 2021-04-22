@@ -13,7 +13,16 @@ namespace OOPTask13B
                 try
                 {
                     sqlConnection.Open();
-                    Console.WriteLine("State: {0}", sqlConnection.State);
+                    string queryString = "SELECT * FROM Dentist";
+                    SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+                    using(SqlDataReader sqlDataReader=sqlCommand.ExecuteReader())
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            Console.WriteLine(String.Format("{0}, {1}, {2}", 
+                                sqlDataReader[0], sqlDataReader[1], sqlDataReader[2]));
+                        }
+                    }
                 }
                 catch(Exception ex)
                 {
