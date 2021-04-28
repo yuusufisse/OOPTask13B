@@ -13,8 +13,8 @@ namespace OOPTask13B
                 try
                 {
                     sqlConnection.Open();
-                    string sql = "UPDATE Dentist SET Telnum = '050 987654321' WHERE Name = Gyro";
-                    SqlCommand sqlCommand1 = new SqlCommand(sql);
+                    string sql = "DELETE FROM Dentist WHERE Id = 9 AND Name <> 'Gyro Gearloose'";
+                    SqlCommand sqlCommand1 = new SqlCommand(sql, sqlConnection);
 
                     string queryString = "SELECT * FROM Dentist";
                     SqlCommand sqlCommand2 = new SqlCommand(queryString, sqlConnection);
